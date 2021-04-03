@@ -59,22 +59,28 @@ int main(){
 		m++;
 		getline(myFile,line,',');
 		
+		//since every first string in dictionary file is a word and second string is the frequency
 		if(m%2==0)
 		count=stoi(line);
 		else{
 		last=line;
 		last.erase(remove(last.begin(), last.end(), '"'), last.end());
 		last.erase(remove(last.begin(), last.end(), '\n'), last.end());
+			//removing any extra ' ' and ' " ' from the dictionary word
 		
 	  }
 		if(m%2==0){
 			mp[last]=count;
+			//keeping the count of frequency of the word in map
 		}
 		
 		}
 		
 		map<int,vector<string>> m1;
+	//m1 is a map used for storing number of changes required to change string str2
 		string str1,str2;
+	
+	
 		
 		cout<<"Enter the word for which you want to check\n";
 		cin>>str2;
@@ -86,6 +92,7 @@ int main(){
 	}
 	int c=0;
 	for(auto i:m1){
+		//since map m1 is sorted according to distance
 		for(auto j:i.second){
 			if(c==5)
 			break;
